@@ -15,43 +15,43 @@ const Carousel = () => {
           <div className="carousel-item active">
             <img src="/assets/banner1.jpg" className="d-block w-100" alt="banner1" />
             <div className="carousel-caption">
-            <h2 className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s' }}>Welcome to UCMAS!</h2>
-            <p className="animate__animated animate__bounceInLeft d-none d-md-block" style={{ animationDelay: '2s' }}>The World’s Leading Abacus Math Program!</p>
+            <h2 className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s', color: 'navy' }}>Welcome to UCMAS!</h2>
+            <p className="animate__animated animate__bounceInLeft d-none d-md-block" style={{ animationDelay: '2s', color: 'navy' }}>The World’s Leading Abacus Math Program!</p>
             <p className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s' }}> <NavLink to="/signup">Register Today</NavLink></p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="/assets/banner2.png" className="d-block w-100" alt="banner2" />
             <div className="carousel-caption">
-              <h5>Welcome to UCMAS!</h5>
+              <h5 className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s', color: 'navy' }}>Welcome to UCMAS!</h5>
               <p className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s' }}> <NavLink to="/signup">Register Today</NavLink></p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="/assets/banner3.jpg" className="d-block w-100" alt="banner3" />
             <div className="carousel-caption">
-              <h5>Welcome to UCMAS!</h5>
+            <h5 className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s', color: 'navy' }}>Welcome to UCMAS!</h5>
               <p className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s' }}> <NavLink to="/signup">Register Today</NavLink></p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="/assets/banner4.jpg" className="d-block w-100" alt="banner4" />
             <div className="carousel-caption">
-              <h5>Welcome to UCMAS!</h5>
+            <h5 className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s', color: 'navy' }}>Welcome to UCMAS!</h5>
               <p className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s' }}> <NavLink to="/signup">Register Today</NavLink></p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="/assets/banner5.png" className="d-block w-100" alt="banner5" />
             <div className="carousel-caption">
-              <h5>Welcome to UCMAS!</h5>
+            <h5 className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s', color: 'navy' }}>Welcome to UCMAS!</h5>
               <p className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s' }}> <NavLink to="/signup">Register Today</NavLink></p>
             </div>
           </div>
           <div className="carousel-item">
             <img src="/assets/banner6.jpg" className="d-block w-100" alt="banner6" />
             <div className="carousel-caption">
-              <h5>Welcome to UCMAS!</h5>
+            <h5 className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s', color: 'navy' }}>Welcome to UCMAS!</h5>
               <p className="animate__animated animate__bounceInRight" style={{ animationDelay: '1s' }}> <NavLink to="/signup">Register Today</NavLink></p>
             </div>
           </div>
