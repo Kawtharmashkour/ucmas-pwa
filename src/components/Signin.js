@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Signin.css'; 
+import { useAuth } from './AuthContext';
 
 const Signin = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,9 +19,13 @@ const Signin = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/v1/user/login', formData);
-      navigate('/admin');
+      login(response.data.user); 
+      // Redirect based on user type
+      if(response.data.user.userType === 'admin') navigate('/admin');
+      else if(response.data.userType === 'teacher') navigate('/teacher');
+      else navigate('/student');
     } catch (err) {
-      setError(err.response.data.error || 'An error occurred');
+      setError(err.response?.data?.error || 'An error occurred');
     }
   };
 
