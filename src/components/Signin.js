@@ -20,7 +20,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/v1/user/login', formData);
-      navigate('/');
+      navigate('/admin');
     } catch (err) {
       setError(err.response.data.error || 'An error occurred');
     }
