@@ -1,8 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './Navigation.css';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext'; 
 
 const Navigation = () => {
+  const { authData, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
       <div className="container-fluid">
@@ -27,9 +35,15 @@ const Navigation = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/gallery">GALLERY</NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">SIGN IN</NavLink>
+            {authData.isLoggedIn ? (
+              <li className="nav-item">
+              <button className="nav-link" style={{ background: 'none', border: 'none', cursor: 'pointer' }} onClick={handleLogout}>SIGN OUT</button>
             </li>
+            ) : (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/login">SIGN IN</NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>

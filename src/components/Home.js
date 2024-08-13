@@ -1,8 +1,8 @@
 import React from 'react';
 import Carousel from './Carousel';
+import Card from './Card';
 
-// Import any additional CSS you need for this component
-import './Home.css'; // Adjust the path according to your project structure
+import './Home.css';
 
 const Home = () => {
   return (
@@ -10,7 +10,8 @@ const Home = () => {
      
       {/* Carousel */}
       <Carousel />
-      {/* Additional content such as upcoming courses can also be added here */}
+      {/* Card */}
+      <Card />
     </div>
   );
 };
