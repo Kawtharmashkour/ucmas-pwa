@@ -47,9 +47,6 @@ const Signup = () => {
             <div className="girl">
               <img src="/Assets/girl.webp" alt="girl" />
             </div>
-            <div className="text">
-              <p>Join us today at UCMAS!</p>
-            </div>
           </div>
           <div className="col-md-6 right">
             <form className="input-box" onSubmit={handleSubmit}>
