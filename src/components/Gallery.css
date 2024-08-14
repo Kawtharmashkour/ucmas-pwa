@@ -1,0 +1,52 @@
+.gallery-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .year-selector {
+    margin-bottom: 20px;
+  }
+  
+  .year-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .year-button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .image-card {
+    width: calc(33% - 20px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .image-card {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .image-card {
+      width: 100%;
+    }
+  }
