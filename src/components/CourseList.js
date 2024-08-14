@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Card } from 'react-bootstrap';
 
 function CourseList() {
   const [courses, setCourses] = useState([]);
