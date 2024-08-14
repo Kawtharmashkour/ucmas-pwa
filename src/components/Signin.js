@@ -23,7 +23,7 @@ const Signin = () => {
       // Redirect based on user type
       if(response.data.user.userType === 'admin') navigate('/admin');
       else if(response.data.userType === 'teacher') navigate('/teacher');
-      else navigate('/student');
+      else navigate('/profile');
     } catch (err) {
       setError(err.response?.data?.error || 'An error occurred');
     }

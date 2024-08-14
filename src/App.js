@@ -9,6 +9,7 @@ import Admin from './pages/Admin';
 import Program from './components/Program';
 import AboutUs from './components/AboutUs';
 import Gallery from './components/Gallery';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/gallery" element={<Gallery/>} />
         <Route path="/login" element={<Signin/>} />
         <Route path="/admin" element={<Admin/>} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </Router>
   );

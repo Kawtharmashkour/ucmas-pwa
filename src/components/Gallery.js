@@ -28,7 +28,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="gallery-container">
+    <div className="gallery-container" style={{marginTop:'75px'}} >
       <h1>Photo Gallery</h1>
       <div className="year-selector">
         {years.map(year => (

@@ -3,6 +3,17 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
+// Route to get the logged-in user's profile information
+router.get('/profile', async(req, res) => {
+    if (req.session.user) {
+        const user = await User.findById(req.session.user._id).populate('courses.course');
+        console.log('User session data:', user);
+        res.json(user);
+    } else {
+        res.status(401).json({ error: 'User not logged in' });
+    }
+});
+
 // Helper function to send the session user's info without the password
 const getUserSessionInfo = (user) => {
     const { password, ...userInfo } = user._doc; // Assuming that the user model includes a password
