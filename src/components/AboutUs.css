@@ -1,0 +1,53 @@
+.about-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .about-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .about-description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .statistics {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-item img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+  
+  .cognitive-functions {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .cognitive-functions li {
+    display: inline-block;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }

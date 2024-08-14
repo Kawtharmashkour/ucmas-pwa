@@ -6,6 +6,9 @@ import Event from './components/Event';
 import Navigation from './components/Navigation'; 
 import Signin from './components/Signin'; 
 import Admin from './pages/Admin';
+import Program from './components/Program';
+import AboutUs from './components/AboutUs';
+import Gallery from './components/Gallery';
 
 function App() {
   return (
@@ -15,9 +18,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/events" element={<Event/>} />
-        <Route path="/programs" element={<div>Programs Page</div>} />
-        <Route path="/about" element={<div>About Us</div>} />
-        <Route path="/gallery" element={<div>Gallery</div>} />
+        <Route path="/programs" element={<Program/>} />
+        <Route path="/about" element={<AboutUs/>} />
+        <Route path="/gallery" element={<Gallery/>} />
         <Route path="/login" element={<Signin/>} />
         <Route path="/admin" element={<Admin/>} />
       </Routes>
