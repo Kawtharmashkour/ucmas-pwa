@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const Course  = require('../models/course');
 
 // Route to get the logged-in user's profile information
 router.get('/profile', async(req, res) => {
     if (req.session.user) {
         const user = await User.findById(req.session.user._id).populate('courses.course');
-        console.log('User session data:', user);
+        //console.log('User session data:', user);
         res.json(user);
     } else {
         res.status(401).json({ error: 'User not logged in' });
@@ -80,15 +81,52 @@ router.get('/logout', (req, res) => {
 
 // Student registers for a course
 router.post('/register-course', async (req, res) => {
-    const { userId, courseId } = req.body;
-    const user = await User.findById(userId);
-    if (user.courses.some(c => c.course.toString() === courseId)) {
-        return res.status(400).json({ error: "Already registered for this course" });
+    // const { userId, courseId } = req.body;
+    // const user = await User.findById(userId);
+    // if (user.courses.some(c => c.course.toString() === courseId)) {
+    //     return res.status(400).json({ error: "Already registered for this course" });
+    // }
+
+    // user.courses.push({ course: courseId, status: 'pending' });
+    // await user.save();
+    // res.status(200).json({ message: "Registration pending approval" });
+    try {
+        const {courseId } = req.body;
+        const userId = req.session.user._id;
+
+        console.log(courseId);
+        console.log('user ID',userId);
+
+        if (!userId || !courseId) {
+            return res.status(400).json({ error: "User ID and Course ID are required" });
+        }
+
+        const user = await User.findById(userId).populate('courses.course');
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        // const course = await Course.findById(courseId).populate('name');
+        // if (!course) {
+        //     return res.status(404).json({ error: "Course not found" });
+        // }
+
+        if (user.courses.some(c => c.course._id.toString() === courseId)) {
+            return res.status(400).json({ error: "Already registered for this course" });
+        }
+
+        user.courses.push({ course: courseId, status: 'pending' });
+        await user.save();
+
+        res.status(200).json({
+            message: "Registration pending approval",
+            course: { course: courseId, status: 'pending' }
+        });
+    } catch (error) {
+        console.error('Error registering course:', error);
+        res.status(500).json({ error: 'An error occurred while registering for the course' });
     }
 
-    user.courses.push({ course: courseId, status: 'pending' });
-    await user.save();
-    res.status(200).json({ message: "Registration pending approval" });
 });
 
 // Route to handle API to retrieve all students with pending course registrations

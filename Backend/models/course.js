@@ -49,4 +49,4 @@ courseSchema.virtual('id').get(function(){
 
 courseSchema.set('toJSON',{virtuals : true});
 
-exports.Course = mongoose.model('Course', courseSchema);
+module.exports.Course = mongoose.model('Course', courseSchema);

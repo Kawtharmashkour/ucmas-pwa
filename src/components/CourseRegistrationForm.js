@@ -5,6 +5,7 @@ import axios from 'axios';
 function CourseRegistrationForm({ show, onHide, onRegister }) {
   const [availableCourses, setAvailableCourses] = useState([]);
   const [selectedCourseId, setSelectedCourseId] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Fetch available courses from the server
@@ -21,9 +22,30 @@ function CourseRegistrationForm({ show, onHide, onRegister }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (selectedCourseId) {
-      await onRegister(selectedCourseId);
-      setSelectedCourseId(''); // Reset selection after registration
+
+    setLoading(true);
+
+    try {
+      console.log(selectedCourseId);
+      const response = await axios.post('/api/v1/user/register-course', {
+        courseId: selectedCourseId
+      });
+
+      if (response.status === 200) {
+        onRegister(response.data.course);
+        setSelectedCourseId(''); // Reset course selection
+        alert('Registration successful! The status is pending approval.');
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        alert('You are already registered for this course.');
+      } else {
+        console.error('Error registering for course:', error);
+        alert('An error occurred while registering for the course.');
+      }
+    } finally {
+      setLoading(false);
+      onHide();
     }
   };
 

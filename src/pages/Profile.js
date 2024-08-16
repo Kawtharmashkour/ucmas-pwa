@@ -23,6 +23,7 @@ function UserProfile() {
                 const data = await response.json();
                 setUser(data);
                 console.log('Profile data:',data);
+                console.log('Profile data:',user._id);
             } catch (error) {
                 if (error.response && error.response.status === 401) {
                     console.error('User not logged in');
@@ -48,12 +49,6 @@ function UserProfile() {
                 <div className="d-flex">
                   <div className="flex-shrink-0">
                     <AvatarUploader avatar='/assets/banner4.jpg' updateAvatar={updateAvatar} />
-                    {/* <Image
-                      src="/assets/banner4.jpg"
-                      alt="Generic placeholder image"
-                      className="img-fluid"
-                      style={{ width: '180px', borderRadius: '10px' }}
-                    /> */}
                   </div>
                   <div className="flex-grow-1 ms-3">
                     <h5 className="mb-1">{`${user.firstName} ${user.lastName}`}</h5>
